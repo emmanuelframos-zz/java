@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>headfirst-jsp-servlets</display-name>
+  <servlet>
+    <servlet-name>ParamServlet</servlet-name>
+    <servlet-class>br.com.headfirst.servlet.ParamServlet</servlet-class>
+    <init-param>
+      <param-name>param_local</param-name>
+      <param-value>Parametro Local</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParamServlet</servlet-name>
+    <url-pattern>/ParamServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TransferJar</servlet-name>
+    <servlet-class>br.com.headfirst.servlet.TransferJar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TransferJar</servlet-name>
+    <url-pattern>/TransferJar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ListenerTester</servlet-name>
+    <servlet-class>br.com.headfirst.servlet.ListenerTester</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListenerTester</servlet-name>
+    <url-pattern>/ListenTest.do</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyServletContextListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyServletRequestListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyHttpSessionListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyServletContextAttributeListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyServletRequestAttributeListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyHttpSessionAttributeListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>br.com.headfirst.listener.MyHttpSessionActivationListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>param_global</param-name>
+    <param-value>Parametro Global</param-value>
+  </context-param>
+</web-app>
