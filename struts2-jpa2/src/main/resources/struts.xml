@@ -1,0 +1,25 @@
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd"> 
+<struts>	
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+  	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.objectFactory.cdi.jndiKey" value="java:comp/env/BeanManager" />
+	
+	<package name="struts2-jpa2" extends="struts-default" namespace="/">		
+		<interceptors>
+			<interceptor name="security" class="br.com.studies.security.SecurityInterceptor" />
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="security" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<action name="employee!*" class="br.com.studies.action.EmployeeAction" method="{1}">
+			<result name="addEmployeeData">/WEB-INF/jsp/employeeForm.jsp</result>
+			<result name="addEmployee">index.jsp</result>
+			<result name="listEmployee">/WEB-INF/jsp/listEmployee.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+	</package>
+</struts>
